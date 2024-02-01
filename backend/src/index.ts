@@ -6,10 +6,9 @@ import userRoutes from './routes/users';
 import authRoutes from './routes/auth';
 import cookieParser from 'cookie-parser';
 import path from 'path';
+import helmet from 'helmet';
 
 mongoose.connect(process.env.MONGODB_CONNECTION_STRING as string);
-
-import helmet from 'helmet';
 
 const app = express();
 app.use(cookieParser());
@@ -31,6 +30,10 @@ app.use(
     },
   })
 );
+
+app.get('*', (req, res) => {
+  res.sendFile(path.resolve(__dirname, '../../frontend/dist', 'index.html'));
+});
 
 const port = 8000;
 app.listen(port, () => {
