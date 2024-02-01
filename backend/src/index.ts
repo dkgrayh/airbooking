@@ -32,15 +32,6 @@ app.use(
   })
 );
 
-// Assuming you're using Express.js
-app.use((req, res, next) => {
-  res.setHeader(
-    'Content-Security-Policy',
-    "default-src 'self'; font-src https://fonts.gstatic.com;"
-  );
-  next();
-});
-
 const port = 8000;
 app.listen(port, () => {
   console.log(`server running on localhost:${port}`);
