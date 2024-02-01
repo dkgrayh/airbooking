@@ -8,6 +8,7 @@ import cookieParser from 'cookie-parser';
 import path from 'path';
 import helmet from 'helmet';
 import { v2 as cloudinary } from 'cloudinary';
+import myHotelRoutes from './routes/my-hotels';
 
 cloudinary.config({
   cloud_name: process.env.CLOUDINARY_CLOUD_NAME,
@@ -27,13 +28,13 @@ app.use(express.static(path.join(__dirname, '../../frontend/dist')));
 
 app.use('/api/auth', authRoutes);
 app.use('/api/users', userRoutes);
+app.use('/api/my-hotels', myHotelRoutes);
 
 app.use(
   helmet.contentSecurityPolicy({
     directives: {
       defaultSrc: ["'self'"],
       fontSrc: ['https://fonts.gstatic.com'],
-      // Add more directives as needed
     },
   })
 );
