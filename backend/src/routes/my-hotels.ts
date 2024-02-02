@@ -35,13 +35,13 @@ router.post(
       .withMessage('Facilities are required'),
   ],
 
-  upload.array('imageFIles', 6),
+  upload.array('imageFiles', 6),
   async (req: Request, res: Response) => {
     try {
-      const imageFIles = req.files as Express.Multer.File[];
+      const imageFiles = req.files as Express.Multer.File[];
       const newHotel: HotelType = req.body;
 
-      const uploadPromises = imageFIles.map(async (image) => {
+      const uploadPromises = imageFiles.map(async (image) => {
         const b64 = Buffer.from(image.buffer).toString('base64');
         let dataURI = 'data:' + image.mimetype + ';base64,' + b64;
         const res = await cloudinary.v2.uploader.upload(dataURI);
