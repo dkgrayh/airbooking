@@ -39,9 +39,15 @@ app.use(
   })
 );
 
+// this code are from GPT
 app.get('*', (req, res) => {
   res.sendFile(path.resolve(__dirname, '../../frontend/dist', 'index.html'));
 });
+
+// this code are original from tutorial
+// app.get('*', (req: Request, res: Response) => {
+//   res.sendFile(path.join(__dirname, '../../frontend/dist/index.html'));
+// });
 
 const port = 8000;
 app.listen(port, () => {
