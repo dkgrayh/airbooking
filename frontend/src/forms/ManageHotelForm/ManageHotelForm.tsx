@@ -66,7 +66,7 @@ const ManageHotelForm = ({ onSave, isLoading }: Props) => {
         <span className="flex justify-end">
           <button
             disabled={isLoading}
-            className="bg-gray-600 text-white font-bold p-2 hover:bg-blue-300 rounded disabled:bg-gray-500"
+            className="bg-gray-600 text-white font-bold p-2 hover:bg-blue-500 rounded disabled:bg-gray-500"
           >
             {isLoading ? 'Saving...' : 'Save'}
           </button>
