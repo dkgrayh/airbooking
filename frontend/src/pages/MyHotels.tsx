@@ -2,7 +2,7 @@ import { useQuery } from 'react-query';
 import { Link } from 'react-router-dom';
 import * as apiClient from '../api-client';
 import { BsBuilding, BsMap } from 'react-icons/bs';
-import { BiChild, BiHotel, BiMoney, BiStar } from 'react-icons/bi';
+import { BiHotel, BiMoney, BiStar } from 'react-icons/bi';
 
 const MyHotels = () => {
   const { data: hotelData } = useQuery(
@@ -46,15 +46,11 @@ const MyHotels = () => {
                 {hotel.type}
               </div>
               <div className="border border-slate-300 rounded-sm p-3 flex items-center">
-                <BiMoney className="mr-1" />€{hotel.pricePerNight} per night
+                <BiMoney className="mr-1" />£{hotel.pricePerNight} per night
               </div>
               <div className="border border-slate-300 rounded-sm p-3 flex items-center">
                 <BiHotel className="mr-1" />
-                {hotel.adultCount} adults
-              </div>
-              <div className="border border-slate-300 rounded-sm p-3 flex items-center">
-                <BiChild className="mr-1" />
-                {hotel.childCount} children
+                {hotel.adultCount} adults, {hotel.childCount} children
               </div>
               <div className="border border-slate-300 rounded-sm p-3 flex items-center">
                 <BiStar className="mr-1" />
