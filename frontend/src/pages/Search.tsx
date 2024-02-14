@@ -3,6 +3,7 @@ import { useSearchContext } from '../contexts/SearchContext';
 import * as apiClient from '../api-client';
 import { useState } from 'react';
 import { HotelSearchResponse } from '../../../backend/src/shared/types';
+import SearchResultsCard from '../components/SearchResultsCard';
 
 const Search = () => {
   const search = useSearchContext();
@@ -47,7 +48,10 @@ const Search = () => {
           {/* TODO sort options */}
         </div>
         {hotelData?.data.map((hotel) => (
-          <SearchResultCard hotel={hotel} />
+          <SearchResultsCard
+            hotel={hotel}
+            key={hotel._id}
+          />
         ))}
       </div>
     </div>
