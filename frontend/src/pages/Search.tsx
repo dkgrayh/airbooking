@@ -4,6 +4,7 @@ import * as apiClient from '../api-client';
 import { useState } from 'react';
 import { HotelSearchResponse } from '../../../backend/src/shared/types';
 import SearchResultsCard from '../components/SearchResultsCard';
+import Pagination from '../components/Pagination';
 
 const Search = () => {
   const search = useSearchContext();
@@ -17,10 +18,6 @@ const Search = () => {
     childCount: search.childCount.toString(),
     page: page.toString(),
   };
-
-  // const { data: hotelData } = useQuery(['searchHotels', searchParams], () => {
-  //   apiClient.searchHotels(searchParams);
-  // });
 
   const { data: hotelData } = useQuery<HotelSearchResponse>(
     ['searchHotels', searchParams],
@@ -53,6 +50,13 @@ const Search = () => {
             key={hotel._id}
           />
         ))}
+        <div>
+          <Pagination
+            page={hotelData?.pagination.page || 1}
+            pages={hotelData?.pagination.pages || 1}
+            onPageChange={(page) => setPage(page)}
+          />
+        </div>
       </div>
     </div>
   );
