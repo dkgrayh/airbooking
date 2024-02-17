@@ -52,6 +52,14 @@ function App() {
               </Layout>
             }
           />
+          <Route
+            path="/detail/:hotelId"
+            element={
+              <Layout>
+                <Detail />
+              </Layout>
+            }
+          />
           {isLoggedIn && (
             <>
               <Route
@@ -75,14 +83,6 @@ function App() {
                 element={
                   <Layout>
                     <EditHotel />
-                  </Layout>
-                }
-              />
-              <Route
-                path="/detail/:hotelId"
-                element={
-                  <Layout>
-                    <Detail />
                   </Layout>
                 }
               />
