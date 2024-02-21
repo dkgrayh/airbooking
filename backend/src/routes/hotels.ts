@@ -84,7 +84,7 @@ router.post(
     // 2. hotelId
     // 3. userId
     const { numberOfNights } = req.body;
-    const hotelId = req.params.hotelID;
+    const hotelId = req.params.hotelId;
 
     const hotel = await Hotel.findById(hotelId);
 
